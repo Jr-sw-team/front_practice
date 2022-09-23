@@ -1,0 +1,72 @@
+<script>
+  fetch("API") // 자동적으로 GET 요청을 날려줌
+    .then((response) => {
+      // 결과를 보고싶다면 .then
+      return response.json(); // 수신한 데이터
+    })
+    .then((결과) => {
+      // then()의 괄호에 결과를 적어줌
+      console.log(결과);
+    });
+</script>
+
+<script>
+  fetch("API") // 자동적으로 GET 요청을 날려줌
+    .then((response) => {
+      // 결과를 보고싶다면 .then
+      return response.json(); // 수신한 데이터
+    })
+    .then((결과) => {
+      // then()의 괄호에 결과를 적어줌
+      console.log(결과);
+    })
+    .catch(() => {
+      console.log("에러남");
+    });
+</script>
+
+<script>
+  fetch("API") // 자동적으로 GET 요청을 날려줌
+    .then((response) => {
+      // 결과를 보고싶다면 .then
+      if (!response.ok) {
+        throw new Error("400 아니면 500 에러남");
+      }
+    })
+    .then((결과) => {
+      // then()의 괄호에 결과를 적어줌
+      console.log(결과);
+    })
+    .catch(() => {
+      console.log("에러남");
+    });
+</script>
+
+<!-- 다른 방법 -->
+<script>
+  async function 데이터가져오는함수() {
+    var response = await fetch("API");
+    if (!response.ok) {
+      throw new Error("400 아니면 500 에러");
+    }
+    var result = await response.json();
+    console.log(result);
+  }
+  데이터가져오는함수().catch(() => {
+    console.log("에러남");
+  });
+</script>
+
+<!-- 외부 라이브러리 react -->
+<script src="axios어쩌고"></script>
+
+<script>
+  axios
+    .get("API")
+    .then((result) => {
+      console.log(result.data);
+    })
+    .catch(() => {
+      console.log("에러남");
+    });
+</script>
